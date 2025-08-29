@@ -5,20 +5,23 @@ title: "Applied Data Science Project Documentation"
 categories: ITD214
 ---
 ## Project Background
-Provide an overview of your team's project business goals and objectives and state the objective that you are working on. 
+Our project aims to develop a data-driven approach to understanding and predicting mental health risks associated with social media usage. The primary business objective is to create actionable insights for healthcare providers, policymakers, and individuals to make informed decisions about digital wellbeing. This analysis supports the growing need for evidence-based interventions in the digital mental health landscape, where traditional assessment methods may miss critical risk factors related to online behavior
 
-Research Questions
+
+**Primary Objective** Develop machine learning models that can reliably identify individuals at risk for mental health issues based on their social media usage patterns, enabling early intervention and targeted
+support services.
+
+**Research Questions**
 This study addresses two critical research questions in digital mental health:
+1) Do individuals who spend more time on social media platforms show higher mental health risk levels?
+2) Can we predict mental health risk based on digital usage patterns and demographic characteristics?
 
-Do individuals who spend more time on social media platforms show higher mental health risk levels?
-Can we predict mental health risk based on digital usage patterns and demographic characteristics?
+**Dataset**
 
-Dataset
-
-Source: Social Media and Mental Health (SMMH) dataset
-Sample Size: 481 participants
-Features: 21 variables including demographics, social media usage patterns, and psychological indicators
-Target: Mental health risk level (Low, Medium, High) derived from 12 Likert-scale psychological assessment questions
+- Source: Social Media and Mental Health (SMMH) dataset
+- Sample Size: 481 participants
+- Features: 21 variables including demographics, social media usage patterns, and psychological indicators
+- Target: Mental health risk level (Low, Medium, High) derived from 12 Likert-scale psychological assessment questions
 
 ## Work Accomplished
 Document your work done to accomplish the outcome
