@@ -10,12 +10,12 @@ Mental health disorders including depression, anxiety, and burnout remain highly
 
 Our project aims to develop a data-driven solution that identifies early warning signs and key contributing factors of mental health challenges among adults, with the aim of enabling timely intervention and reducing the risk of long-term mental health deterioration. This will provide healthcare providers with actionable risk assessments, support evidence-based policy development for digital wellbeing initiatives, and ultimately reduce healthcare costs while improving population mental health outcomes through early, targeted interventions.
 
-**Primary Objective**
+**Primary Objective:**
 To identify social media usage patterns and behavioral indicators that are predictive of mental health symptoms in adults, enabling early detection and timely interventions. This analysis will examine relationships between digital engagement behaviors and mental health outcomes to develop predictive models that support healthcare providers in identifying at-risk individuals and contributing to MOHT's proactive mental health strategy.
 
 
-**Research Questions**:
-This study addresses research questions in digital mental health:
+**Research Questions:**
+This project seeks to addresses research questions in digital mental health:
 1) Do individuals who spend more time on social media platforms show higher mental health risk levels?
 2) Can we predict mental health risk based on digital usage patterns and demographic characteristics?
 
