@@ -45,8 +45,8 @@ smmh_clean['gender_clean'] = smmh_clean['gender'].apply(lambda x: x if x in ['Ma
 smmh_clean = smmh_clean[smmh_clean['gender_clean'].isin(['Male', 'Female'])].copy()
 ```
 
-- Retained only 'Male' and 'Female' categories for binary analysis
-- Excluded 7 respondents with non-binary/other gender identities
+Rationale:
+- As the "Others" category is small, excluded 7 respondents with non-binary/other gender identities
 - Final gender distribution: ~478 respondents (Male: ~211, Female: ~263)
 
 **2. Age Data Type Conversion**
@@ -70,16 +70,16 @@ Rationale:
 - Used mode imputation (most frequent value) for categorical variable
 - Maintains representative distribution of organization types
 
-4. Social Media Usage Filter
-Objective: Focus analysis on active social media users only
-Process:
-python# Remove rows where participants don't use social media
-smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
-Impact:
+**4. Social Media Usage Filter** 
 
-Excluded non-social media users from analysis
-Ensures all remaining respondents have relevant digital behavior data
-Maintains focus on research question about social media usage patterns
+```python
+# Remove rows where participants don't use social media
+smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
+```
+
+Rationale:
+Excluded non-social media users from analysis to ensure all remaining respondents have relevant digital behavior data
+
 
 **Dataset Structure and Preprocessing**
 We worked with the cleaned SMMH dataset, utilizing all engineered features as predictors and our derived risk_level as the target variable. Our data preparation process followed rigorous machine learning practices:
