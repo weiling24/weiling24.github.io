@@ -29,29 +29,21 @@ This project seeks to addresses research questions in digital mental health:
 ## Work Accomplished
 **Document your work done to accomplish the outcome
 
-Feature Engineering and Data Processing**
-
-- Engineered clinically meaningful target variables using score-based thresholds rather than arbitrary quantiles
-- Created comprehensive feature sets including demographic encoding, platform-specific binary features, and ordinal time variables
-- Implemented advanced class imbalance handling using SMOTE techniques applied only to training data
-- Developed robust preprocessing pipelines ensuring data quality and model compatibility
 
 ### Data Preparation
 
 #### Data Cleaning: 
 
 **1. Gender Variable Cleaning**
-**Objective:** Standardize gender categories for analysis consistency
 
 **Original Categories Found:**
 - Entries: 'Male', 'Female', 'Nonbinary', 'Non-binary', 'NB', 'unsure', 'Trans', 'Non binary', 'There are others???'
 
-**Cleaning Process: **
-'''python# Clean gender variable 
+```python
+# Renaming the "Others" gender variable
 smmh_clean['gender_clean'] = smmh_clean['gender'].apply(lambda x: x if x in ['Male', 'Female'] else 'Other')
 smmh_clean = smmh_clean[smmh_clean['gender_clean'].isin(['Male', 'Female'])].copy()
-
-Impact:
+```
 
 Retained only 'Male' and 'Female' categories for binary analysis
 Excluded 7 respondents with non-binary/other gender identities
