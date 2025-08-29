@@ -11,7 +11,7 @@ Our project aims to develop a data-driven approach to understanding and predicti
 **Primary Objective** Develop machine learning models that can reliably identify individuals at risk for mental health issues based on their social media usage patterns, enabling early intervention and targeted
 support services.
 
-**Research Questions**
+**Research Questions**:
 This study addresses two critical research questions in digital mental health:
 1) Do individuals who spend more time on social media platforms show higher mental health risk levels?
 2) Can we predict mental health risk based on digital usage patterns and demographic characteristics?
@@ -24,15 +24,47 @@ This study addresses two critical research questions in digital mental health:
 - Target: Mental health risk level (Low, Medium, High) derived from 12 Likert-scale psychological assessment questions
 
 ## Work Accomplished
-Document your work done to accomplish the outcome
+**Document your work done to accomplish the outcome
+Feature Engineering and Data Processing**
+
+- Engineered clinically meaningful target variables using score-based thresholds rather than arbitrary quantiles
+- Created comprehensive feature sets including demographic encoding, platform-specific binary features, and ordinal time variables
+- Implemented advanced class imbalance handling using SMOTE techniques applied only to training data
+- Developed robust preprocessing pipelines ensuring data quality and model compatibility
 
 ### Data Preparation
-We're working with our cleaned SMMH dataset, using all engineered features as predictors and our derived risk_level as the target variable. Our train-test split follows standard machine learning practices with an 80-20 split, stratified sampling to maintain class proportions, and a fixed random state for reproducibility
 
+**Dataset Structure and Preprocessing**
+We worked with the cleaned SMMH dataset, utilizing all engineered features as predictors and our derived risk_level as the target variable. Our data preparation process followed rigorous machine learning practices:
 
+Train-Test Split Configuration:
+- 80-20 split maintaining adequate sample sizes for both training (376 samples) and testing (95 samples)
+- Stratified sampling to preserve class proportions across splits
+- Fixed random state (42) ensuring reproducibility across multiple runsom state for reproducibility
+
+**Class Imbalance Handling:**
+- Applied SMOTE (Synthetic Minority Oversampling Technique) exclusively to training data
+- Maintained test set integrity for unbiased evaluation
+- Used class weighting strategies {Low:1, Medium:2, High:5} to prioritize high-risk identification
 
 ### Modelling
 1. Decision Tree
+
+**Hyperparameter Tuning Process: **
+-GridSearchCV testing 350+ parameter combinations
+-Parameters optimized: max_depth (4-10), min_samples_split (10-30), min_samples_leaf (1-15), class_weight, criterion
+-Multi-metric scoring: Accuracy, balanced accuracy, F1-weighted, F1-high
+-Refit strategy: Prioritized F1-high score for clinical relevance
+
+**Key Characteristics:
+**
+Maximum interpretability with clear decision paths
+Feature importance transparency enabling clinical explanation
+Robust performance after hyperparameter optimization
+Clinical utility through explainable decision rules
+
+
+
 2. Random Forest
 3. Support Vector Machine
 
