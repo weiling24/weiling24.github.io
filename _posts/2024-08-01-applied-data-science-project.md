@@ -5,14 +5,17 @@ title: "Applied Data Science Project Documentation"
 categories: ITD214
 ---
 ## Project Background
-Our project aims to develop a data-driven approach to understanding and predicting mental health risks associated with social media usage. The primary business objective is to create actionable insights for healthcare providers, policymakers, and individuals to make informed decisions about digital wellbeing. This analysis supports the growing need for evidence-based interventions in the digital mental health landscape, where traditional assessment methods may miss critical risk factors related to online behavior
 
+Mental health disorders including depression, anxiety, and burnout remain highly prevalent among adults, particularly younger generations, yet persistent stigma and reactive healthcare models result in delayed identification and treatment when conditions become more severe and resource-intensive. The Ministry of Health's Office for Healthcare Transformation (MOHT) seeks to develop a comprehensive data-driven solution that proactively identifies early warning signs and key contributing factors of mental health challenges among adults, enabling timely interventions to prevent long-term mental health deterioration and optimise healthcare resource allocation while overcoming traditional barriers of stigma and delayed help-seeking behavior.
 
-**Primary Objective** Develop machine learning models that can reliably identify individuals at risk for mental health issues based on their social media usage patterns, enabling early intervention and targeted
-support services.
+Our project aims to develop a data-driven solution that identifies early warning signs and key contributing factors of mental health challenges among adults, with the aim of enabling timely intervention and reducing the risk of long-term mental health deterioration. This will provide healthcare providers with actionable risk assessments, support evidence-based policy development for digital wellbeing initiatives, and ultimately reduce healthcare costs while improving population mental health outcomes through early, targeted interventions.
+
+**Primary Objective**
+To identify social media usage patterns and behavioral indicators that are predictive of mental health symptoms in adults, enabling early detection and timely interventions. This analysis will examine relationships between digital engagement behaviors and mental health outcomes to develop predictive models that support healthcare providers in identifying at-risk individuals and contributing to MOHT's proactive mental health strategy.
+
 
 **Research Questions**:
-This study addresses two critical research questions in digital mental health:
+This study addresses research questions in digital mental health:
 1) Do individuals who spend more time on social media platforms show higher mental health risk levels?
 2) Can we predict mental health risk based on digital usage patterns and demographic characteristics?
 
