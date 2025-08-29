@@ -36,7 +36,7 @@ This project seeks to addresses research questions in digital mental health:
 
 **1. Gender Variable Cleaning**
 
-Original Categories Found: 'Male', 'Female', 'Nonbinary', 'Non-binary', 'NB', 'unsure', 'Trans', 'Non binary', 'There are others???'
+9 Original Categories Found: 'Male', 'Female', 'Nonbinary', 'Non-binary', 'NB', 'unsure', 'Trans', 'Non binary', 'There are others???'
 
 ```python
 # Renaming the "Others" gender variable
@@ -81,7 +81,10 @@ Excluded non-social media users from analysis to ensure all remaining respondent
 
 
 **Dataset Structure and Preprocessing**
-We worked with the cleaned SMMH dataset, utilizing all engineered features as predictors and our derived risk_level as the target variable. Our data preparation process followed rigorous machine learning practices:
+
+### Feature Engineering
+
+### Pre-Modelling
 
 Train-Test Split Configuration:
 - 80-20 split maintaining adequate sample sizes for both training (376 samples) and testing (95 samples)
