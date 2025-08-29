@@ -50,14 +50,11 @@ Excluded 7 respondents with non-binary/other gender identities
 Final gender distribution: ~478 respondents (Male: ~211, Female: ~263)
 
 2. Age Data Type Conversion
-Objective: Ensure age variable is properly formatted for numerical analysis
-Process:
-pythonsmmh_clean['age'] = smmh_clean['age'].astype(int)
-Impact:
 
-Converted age from mixed data types to integer format
-Enables proper statistical calculations and age-based grouping
-Age range maintained: 13-91 years (mean: 26.1)
+Ensure age variable is properly formatted for numerical analysis 
+```python
+smmh_clean['age'] = smmh_clean['age'].astype(int)
+```
 
 3. Missing Data Handling - Organization Type
 Objective: Address missing values in organization affiliation variable
