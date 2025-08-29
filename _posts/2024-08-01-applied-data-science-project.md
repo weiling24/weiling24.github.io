@@ -93,8 +93,18 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
     - Diversity categories: Single (1), Multi (2-3), High (4+) platform users
 
 **2. Usage Time Conversion**
-- Transformed categorical time ranges → continuous numerical values:
+- Transformed categorical time ranges → continuous numerical values
+  
+```python
+"Less than 1 hour" → 0.5 hours
+"Between 1-2 hours" → 1.5 hours
+"Between 2-3 hours" → 2.5 hours
+"Between 3-4 hours" → 3.5 hours
+"Between 4-5 hours" → 4.5 hours
+"More than 5 hours" → 6.0 hours
+```
 
+Output: daily_hours_numeric variable for correlation analysis
 
 **3. Mental Health Risk Classification**
 
