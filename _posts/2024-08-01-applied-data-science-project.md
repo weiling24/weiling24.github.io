@@ -51,22 +51,47 @@ Train-Test Split Configuration:
 1. Decision Tree
 
 **Hyperparameter Tuning Process: **
--GridSearchCV testing 350+ parameter combinations
--Parameters optimized: max_depth (4-10), min_samples_split (10-30), min_samples_leaf (1-15), class_weight, criterion
--Multi-metric scoring: Accuracy, balanced accuracy, F1-weighted, F1-high
--Refit strategy: Prioritized F1-high score for clinical relevance
 
-**Key Characteristics:
-**
-Maximum interpretability with clear decision paths
-Feature importance transparency enabling clinical explanation
-Robust performance after hyperparameter optimization
-Clinical utility through explainable decision rules
+- GridSearchCV testing 350+ parameter combinations
+- Parameters optimized: max_depth (4-10), min_samples_split (10-30), min_samples_leaf (1-15), class_weight, criterion
+- Multi-metric scoring: Accuracy, balanced accuracy, F1-weighted, F1-high
+- Refit strategy: Prioritized F1-high score for clinical relevance
 
+**Key Characteristics:**
 
+- Maximum interpretability with clear decision paths
+- Feature importance transparency enabling clinical explanation
+- Robust performance after hyperparameter optimization
+- Clinical utility through explainable decision rules
 
 2. Random Forest
+
+**Ensemble Approach:**
+- 200 decision trees providing robust ensemble predictions
+- Bootstrap aggregation reducing overfitting and improving generalization
+- Feature randomness at each split preventing dominance by single variables
+- Voting mechanism creating stable, reliable predictions
+
+**Optimization Strategy:**
+- Balanced multiple objectives across accuracy metrics
+- Cross-validation stability ensuring consistent performance
+- Feature importance aggregation providing reliable variable rankings
+- Clinical performance prioritization through strategic class weighting
+
 3. Support Vector Machine
+
+**Mathematical Approach:**
+
+- RBF kernel capturing non-linear relationships between features and mental health outcomes
+- High regularization (C=10) preventing overfitting while maintaining model complexity
+- Automatic gamma scaling adapting to feature variance patterns
+- Probability estimation enabled for ROC-AUC analysis and ensemble potential
+
+**Parameter Optimization:**
+- Comprehensive grid search across kernel types (linear, rbf, polynomial)
+- C parameter range: 0.1 to 100 testing regularization strength
+- Gamma optimization: scale, auto, and manual values (0.01-1.0)
+- Feature scaling applied for optimal SVM performance
 
 
 ### Evaluation
