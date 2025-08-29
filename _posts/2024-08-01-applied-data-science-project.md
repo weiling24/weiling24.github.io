@@ -28,6 +28,7 @@ This project seeks to addresses research questions in digital mental health:
 
 ## Work Accomplished
 **Document your work done to accomplish the outcome
+
 Feature Engineering and Data Processing**
 
 - Engineered clinically meaningful target variables using score-based thresholds rather than arbitrary quantiles
@@ -36,6 +37,59 @@ Feature Engineering and Data Processing**
 - Developed robust preprocessing pipelines ensuring data quality and model compatibility
 
 ### Data Preparation
+
+#### Data Cleaning: 
+
+**1. Gender Variable Cleaning**
+**Objective:** Standardize gender categories for analysis consistency
+
+**Original Categories Found:**
+- Entries: 'Male', 'Female', 'Nonbinary', 'Non-binary', 'NB', 'unsure', 'Trans', 'Non binary', 'There are others???'
+
+**Cleaning Process: **
+'''python# Clean gender variable 
+smmh_clean['gender_clean'] = smmh_clean['gender'].apply(lambda x: x if x in ['Male', 'Female'] else 'Other')
+smmh_clean = smmh_clean[smmh_clean['gender_clean'].isin(['Male', 'Female'])].copy()
+
+Impact:
+
+Retained only 'Male' and 'Female' categories for binary analysis
+Excluded 7 respondents with non-binary/other gender identities
+Final gender distribution: ~478 respondents (Male: ~211, Female: ~263)
+
+2. Age Data Type Conversion
+Objective: Ensure age variable is properly formatted for numerical analysis
+Process:
+pythonsmmh_clean['age'] = smmh_clean['age'].astype(int)
+Impact:
+
+Converted age from mixed data types to integer format
+Enables proper statistical calculations and age-based grouping
+Age range maintained: 13-91 years (mean: 26.1)
+
+3. Missing Data Handling - Organization Type
+Objective: Address missing values in organization affiliation variable
+Process:
+python# Get the mode of the 'organization_type' column
+mode_value = smmh_clean['organization_type'].mode()[0]  
+# Fill missing values with the mode
+smmh_clean.fillna({'organization_type': mode_value}, inplace=True)
+Rationale:
+
+Used mode imputation (most frequent value) for categorical variable
+Maintains representative distribution of organization types
+Prevents loss of respondents due to missing demographic data
+
+4. Social Media Usage Filter
+Objective: Focus analysis on active social media users only
+Process:
+python# Remove rows where participants don't use social media
+smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
+Impact:
+
+Excluded non-social media users from analysis
+Ensures all remaining respondents have relevant digital behavior data
+Maintains focus on research question about social media usage patterns
 
 **Dataset Structure and Preprocessing**
 We worked with the cleaned SMMH dataset, utilizing all engineered features as predictors and our derived risk_level as the target variable. Our data preparation process followed rigorous machine learning practices:
