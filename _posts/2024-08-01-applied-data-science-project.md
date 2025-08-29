@@ -99,72 +99,86 @@ Train-Test Split Configuration:
 1. Decision Tree Performance
 
 Quantitative Results:
-Test Accuracy: 48.4%
-Cross-Validation: 72.6% ± 7.2%
-High-Risk Recall: 27% (3/11 high-risk individuals identified)
-ROC-AUC: 0.669 (fair discrimination)
+- Test Accuracy: 48.4%
+- Cross-Validation: 72.6% ± 7.2%
+- High-Risk Recall: 27% (3/11 high-risk individuals identified)
+- ROC-AUC: 0.669 (fair discrimination)
 
 Clinical Performance Analysis:
 
-Excellent generalization improvement: +6 percentage points CV accuracy over untuned version
-Reduced overfitting: More stable performance across validation folds
-Interpretable decisions: Clear feature-based rules for clinical application
-Balanced performance: Reasonable accuracy across all risk categories
+- Excellent generalization improvement: +6 percentage points CV accuracy over untuned version
+- Reduced overfitting: More stable performance across validation folds
+- Interpretable decisions: Clear feature-based rules for clinical application
+- Balanced performance: Reasonable accuracy across all risk categories
 
 Feature Importance Insights:
 
-Daily_hours_numeric (40%): Dominant predictor validating time-spent hypothesis
-Platform_count (15%): Multi-platform usage significantly increases risk
-TikTok usage (8%): Highest individual platform risk factor
-Occupation status (8%): Professional context influences mental health risk
+- Daily_hours_numeric (40%): Dominant predictor validating time-spent hypothesis
+- Platform_count (15%): Multi-platform usage significantly increases risk
+- TikTok usage (8%): Highest individual platform risk factor
 
 2. Random Forest Performance
 Quantitative Results:
 
-Test Accuracy: 50.5%
-Cross-Validation: 69.4% ± 3.1%
-High-Risk Recall: 82% (9/11 high-risk individuals identified)
-ROC-AUC: 0.758 (good discrimination - highest among all models)
+- Test Accuracy: 50.5%
+- Cross-Validation: 69.4% ± 3.1%
+- High-Risk Recall: 82% (9/11 high-risk individuals identified)
+- ROC-AUC: 0.758 (good discrimination - highest among all models)
 
 Clinical Excellence:
 
-Outstanding high-risk identification: 82% recall means 4 out of 5 high-risk individuals receive intervention
-Balanced accuracy improvement: +18.9 percentage points over untuned version (67.9% vs 49.0%)
-Stable cross-validation: Low standard deviation (±3.1%) indicates reliable performance
-Clinical safety: Only 1 high-risk individual completely missed (classified as low-risk)
+- Outstanding high-risk identification: 82% recall means 4 out of 5 high-risk individuals receive intervention
+- Balanced accuracy improvement: +18.9 percentage points over untuned version (67.9% vs 49.0%)
+- Stable cross-validation: Low standard deviation (±3.1%) indicates reliable performance
+- Clinical safety: Only 1 high-risk individual completely missed (classified as low-risk)
 
 Ensemble Advantages:
 
-Robust probability estimates: Averaging across 200 trees provides stable risk assessments
-Reduced overfitting: Ensemble approach prevents memorization of training patterns
-Feature importance reliability: Aggregated importance scores provide trustworthy insights
-Generalization strength: Consistent performance across diverse data splits
+- Robust probability estimates: Averaging across 200 trees provides stable risk assessments
+- Reduced overfitting: Ensemble approach prevents memorization of training patterns
+- Feature importance reliability: Aggregated importance scores provide trustworthy insights
+- Generalization strength: Consistent performance across diverse data splits
 
 3. Support Vector Machine Performance
 Quantitative Results:
 
-Test Accuracy: 72.6% (highest raw accuracy)
-Cross-Validation: 80.0% ± 10.5% (highest CV score)
-High-Risk Recall: 0% (critical failure - no high-risk predictions made)
-ROC-AUC: 0.744 (surprisingly good discrimination despite classification failure)
+- Test Accuracy: 72.6% (highest raw accuracy)
+- Cross-Validation: 80.0% ± 10.5% (highest CV score)
+- High-Risk Recall: 0% (critical failure - no high-risk predictions made)
+- ROC-AUC: 0.744 (surprisingly good discrimination despite classification failure)
 
 Critical Performance Issue:
 
-Complete high-risk blindness: Model never predicts high-risk category
-All predictions: Limited to Low and Medium risk only
-Clinical danger: 100% of high-risk individuals missed entirely
-Conservative bias: Extreme preference for "safe" predictions
+- Complete high-risk blindness: Model never predicts high-risk category
+- All predictions: Limited to Low and Medium risk only
+- Clinical danger: 100% of high-risk individuals missed entirely
+- Conservative bias: Extreme preference for "safe" predictions
 
 Technical Analysis:
 
-RBF kernel limitations: Non-linear transformations may have eliminated high-risk decision regions
-Class imbalance sensitivity: Despite class weighting, severe imbalance (11% high-risk) overwhelmed optimization
-Feature scaling effects: Normalization may have reduced discriminative power of key variables
-Probability calibration paradox: Good ROC-AUC suggests ranking ability exists but threshold selection failed
+- RBF kernel limitations: Non-linear transformations may have eliminated high-risk decision regions
+- Class imbalance sensitivity: Despite class weighting, severe imbalance (11% high-risk) overwhelmed optimization
+- Feature scaling effects: Normalization may have reduced discriminative power of key variables
+- Probability calibration paradox: Good ROC-AUC suggests ranking ability exists but threshold selection failed
 
 
 ## Recommendation and Analysis
-Explain the analysis and recommendations
+Primary Recommendation: Random Forest Deployment
+Clinical Deployment Rationale:
+- Random Forest emerges as the optimal choice for clinical mental health screening applications based on comprehensive evaluation criteria:
+
+**Superior Clinical Performance:
+- 82% high-risk recall: Identifies 4 out of 5 individuals needing immediate intervention
+- Balanced accuracy: Strong performance across all risk categories (67.9%)
+- Clinical safety: Minimizes dangerous false negatives (missed high-risk cases)
+- Population screening suitable: Reliable performance for large-scale deployment
+
+** Technical Reliability:
+
+- Highest ROC-AUC (0.758): Best overall discriminative ability
+- Stable cross-validation: Consistent performance across different data splits (±3.1% SD)
+- Robust probability estimates: Ensemble averaging provides calibrated risk probabilities
+- Generalization strength: Proper balance between training and validation performance
 
 
 ## AI Ethics
