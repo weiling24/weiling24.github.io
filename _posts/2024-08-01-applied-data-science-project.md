@@ -87,10 +87,10 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 - Created one-hot encoded variables for each platform
 - Generated platform diversity metrics
 
-  **Output**
-    - Individual platform indicators (Facebook, Instagram, Twitter, etc.)
-    - platform_count: Total platforms used per user
-    - Diversity categories: Single (1), Multi (2-3), High (4+) platform users
+**Output**
+  - Individual platform indicators (Facebook, Instagram, Twitter, etc.)
+  - platform_count: Total platforms used per user
+  - Diversity categories: Single (1), Multi (2-3), High (4+) platform users
 
 **2. Usage Time Conversion**
 - Transformed categorical time ranges → continuous numerical values
@@ -104,7 +104,7 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 "More than 5 hours" → 6.0 hours
 ```
 
-Output: daily_hours_numeric variable for correlation analysis
+**Output:** daily_hours_numeric variable for correlation analysis
 
 **3. Mental Health Risk Classification**
 - low_threhold set at 22 as this means the average response ≤ 2.0 per question (between "Never/Rarely" and "Sometimes")
@@ -126,7 +126,7 @@ def classify_risk_level(score):
         return 'High'
 ```
 
-Output: risk_level categorical variable for predictive modeling
+**Output:** risk_level categorical variable for predictive modeling
 
 **4. Categorical Encoding**
 - Applied Label Encoding to demographic variables:
