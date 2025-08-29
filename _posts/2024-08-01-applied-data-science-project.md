@@ -128,21 +128,40 @@ def classify_risk_level(score):
 
 Output: risk_level categorical variable for predictive modeling
 
+**4. Categorical Encoding**
+- Applied Label Encoding to demographic variables:
+  - Gender → gender_encoded
+  - Relationship Status → rs_encoded
+  - Occupation → occ_encoded
+
+- Example:
+  
+```python
+  # Encode gender
+le_gender = LabelEncoder()
+smmh_clean['gender_encoded'] = le_gender.fit_transform(smmh_clean['gender'])
+all_features.append('gender_encoded')
+```
+
+
 ### Pre-Modelling
 
-Train-Test Split Configuration:
+**Train-Test Split Configuration:**
 - 80-20 split maintaining adequate sample sizes for both training (376 samples) and testing (95 samples)
-- Stratified sampling to preserve class proportions across splits
+- Stratified sampling to preserve risk level distribution
 - Fixed random state (42) ensuring reproducibility across multiple runsom state for reproducibility
 
 **Class Imbalance Handling:**
-- Applied SMOTE (Synthetic Minority Oversampling Technique) exclusively to training data
-- Maintained test set integrity for unbiased evaluation
-- Used class weighting strategies {Low:1, Medium:2, High:5} to prioritize high-risk identification
+- Applied SMOTE to training data to address class imbalance
+
 
 ### Modelling
 1. Decision Tree
 
+
+- Maintained test set integrity for unbiased evaluation
+- Used class weighting strategies {Low:1, Medium:2, High:5} to prioritize high-risk identification
+- 
 **Hyperparameter Tuning Process: **
 
 - GridSearchCV testing 350+ parameter combinations
