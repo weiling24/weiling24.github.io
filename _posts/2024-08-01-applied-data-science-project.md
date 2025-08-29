@@ -109,9 +109,20 @@ Output: daily_hours_numeric variable for correlation analysis
 **3. Mental Health Risk Classification**
 
 Created three-tier risk system:
-  - Low Risk: ≤ low_threshold (minimal symptoms)
-  - Medium Risk: low_threshold < score ≤ medium_threshold (moderate symptoms)
-  - High Risk: > medium_threshold (elevated symptoms)
+
+```python
+# Define thresholds 
+low_threshold = 22
+medium_threshold = 45
+
+def classify_risk_level(score):
+    if score <= low_threshold:
+        return 'Low'
+    elif score <= medium_threshold:
+        return 'Medium'
+    else:
+        return 'High'
+```
 
 Output: risk_level categorical variable for predictive modeling
 
