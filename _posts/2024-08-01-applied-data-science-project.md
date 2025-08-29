@@ -83,9 +83,26 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 
 **1. Platform Usage Feature Engineering**
 
+- Split comma-separated platform strings → structured lists
+- Created one-hot encoded variables for each platform
+- Generated platform diversity metrics
+
+  **New Features Created:**
+    - Individual platform indicators (Facebook, Instagram, Twitter, etc.)
+    - platform_count: Total platforms used per user
+    - Diversity categories: Single (1), Multi (2-3), High (4+) platform users
+
 **2. Usage Time Conversion**
+- Transformed categorical time ranges → continuous numerical values:
+
 
 **3. Mental Health Risk Classification**
+Created three-tier risk system:
+  - Low Risk: ≤ low_threshold (minimal symptoms)
+  - Medium Risk: low_threshold < score ≤ medium_threshold (moderate symptoms)
+  - High Risk: > medium_threshold (elevated symptoms)
+
+Output: risk_level categorical variable for predictive modeling
 
 ### Pre-Modelling
 
