@@ -32,7 +32,7 @@ This project seeks to addresses research questions in digital mental health:
 
 ### Data Preparation
 
-A) Data Cleaning: 
+**A) Data Cleaning: **
 
 **1. Gender Variable Cleaning**
 
@@ -79,7 +79,8 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 Rationale:
 Excluded non-social media users from analysis to ensure all remaining respondents have relevant digital behavior data
 
-B) Data Transformation
+**B) Data Transformation**
+
 
 
 ### Pre-Modelling
