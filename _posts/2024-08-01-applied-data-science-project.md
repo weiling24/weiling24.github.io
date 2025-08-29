@@ -97,6 +97,7 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 
 
 **3. Mental Health Risk Classification**
+
 Created three-tier risk system:
   - Low Risk: ≤ low_threshold (minimal symptoms)
   - Medium Risk: low_threshold < score ≤ medium_threshold (moderate symptoms)
