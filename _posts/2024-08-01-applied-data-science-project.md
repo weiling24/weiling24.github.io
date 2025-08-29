@@ -36,7 +36,7 @@ This project seeks to addresses research questions in digital mental health:
 
 **1. Gender Variable Cleaning**
 
-9 Original Categories Found: 'Male', 'Female', 'Nonbinary', 'Non-binary', 'NB', 'unsure', 'Trans', 'Non binary', 'There are others???'
+  - 9 Original Categories Found: 'Male', 'Female', 'Nonbinary', 'Non-binary', 'NB', 'unsure', 'Trans', 'Non binary', 'There are others???'
 
 ```python
 # Renaming the "Others" gender variable
@@ -50,7 +50,7 @@ Rationale:
 
 **2. Age Data Type Conversion**
    
-Ensure age variable is properly formatted for analysis 
+  - Ensure age variable is properly formatted for analysis 
 
 ```python
 smmh_clean['age'] = smmh_clean['age'].astype(int)
