@@ -32,7 +32,7 @@ This project seeks to addresses research questions in digital mental health:
 
 ### Data Preparation
 
-**A) Data Cleaning: **
+**A) Data Cleaning:**
 
 **1. Gender Variable Cleaning**
 
@@ -81,7 +81,11 @@ Excluded non-social media users from analysis to ensure all remaining respondent
 
 **B) Data Transformation**
 
+**1. Platform Usage Feature Engineering**
 
+**2. Usage Time Conversion**
+
+**3. Mental Health Risk Classification**
 
 ### Pre-Modelling
 
