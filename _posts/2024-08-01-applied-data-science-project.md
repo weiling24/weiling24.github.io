@@ -146,12 +146,12 @@ all_features.append('gender_encoded')
 
 ### Pre-Modelling
 
-**Train-Test Split Configuration:**
+**1. Train-Test Split Configuration:**
 - 80-20 split maintaining adequate sample sizes for both training (376 samples) and testing (95 samples)
 - Stratified sampling to preserve risk level distribution
 - Fixed random state (42) ensuring reproducibility across multiple runsom state for reproducibility
 
-**Class Imbalance Handling:**
+**2. Class Imbalance Handling:**
 - Applied SMOTE to training data to address class imbalance
 
 
