@@ -44,9 +44,9 @@ smmh_clean['gender_clean'] = smmh_clean['gender'].apply(lambda x: x if x in ['Ma
 smmh_clean = smmh_clean[smmh_clean['gender_clean'].isin(['Male', 'Female'])].copy()
 ```
 
-Rationale:
-- As the "Others" category is small, excluded 7 respondents with non-binary/other gender identities
-- Final gender distribution: ~478 respondents (Male: ~211, Female: ~263)
+  - Rationale:
+    - As the "Others" category is small, excluded 7 respondents with non-binary/other gender identities
+    - Final gender distribution: ~478 respondents (Male: ~211, Female: ~263)
 
 **2. Age Data Type Conversion**
    
@@ -65,9 +65,9 @@ mode_value = smmh_clean['organization_type'].mode()[0]
 smmh_clean.fillna({'organization_type': mode_value}, inplace=True)
 ```
 
-Rationale:
-- Used mode imputation (most frequent value) for categorical variable
-- Maintains representative distribution of organization types
+  - Rationale:
+    - Used mode imputation (most frequent value) for categorical variable
+    - Maintains representative distribution of organization types
 
 **4. Social Media Usage Filter** 
 
@@ -76,8 +76,8 @@ Rationale:
 smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 ```
 
-Rationale:
-Excluded non-social media users from analysis to ensure all remaining respondents have relevant digital behavior data
+  - Rationale:
+    - Excluded non-social media users from analysis to ensure all remaining respondents have relevant digital behavior data
 
 **B) Data Transformation**
 
