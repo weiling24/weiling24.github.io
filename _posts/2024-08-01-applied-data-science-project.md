@@ -24,7 +24,7 @@ This project seeks to addresses research questions in digital mental health:
 - Source:[ Social Media and Mental Health (SMMH) ]([url](https://www.kaggle.com/datasets/souvikahmed071/social-media-and-mental-health/data)) data (https://www.kaggle.com/datasets/souvikahmed071/social-media-and-mental-health/data)
 - Sample Size: 481 participants
 - Features: 21 variables including demographics, social media usage patterns, and psychological indicators
-- Target: Mental health risk level (Low, Medium, High) derived from 12 Likert-scale psychological assessment questions
+- Target: Mental health risk level (Low, Medium, High) derived from 11 Likert-scale psychological assessment questions
 
 ## Work Accomplished
 **Document your work done to accomplish the outcome
@@ -87,7 +87,7 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 - Created one-hot encoded variables for each platform
 - Generated platform diversity metrics
 
-  **New Features Created:**
+  **Output**
     - Individual platform indicators (Facebook, Instagram, Twitter, etc.)
     - platform_count: Total platforms used per user
     - Diversity categories: Single (1), Multi (2-3), High (4+) platform users
@@ -107,6 +107,8 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 Output: daily_hours_numeric variable for correlation analysis
 
 **3. Mental Health Risk Classification**
+low_threhold set at 22 as this means the average response ≤ 2.0 per question (between "Never/Rarely" and "Sometimes")
+medium_threhold set at 45 as this means the average response is 2.1-4.1 per question ("Sometimes" to "Often")
 
 Created three-tier risk system:
 
