@@ -21,7 +21,7 @@ This project seeks to addresses research questions in digital mental health:
 
 **Dataset**
 
-- Source: Social Media and Mental Health (SMMH) dataset
+- Source:[ Social Media and Mental Health (SMMH) ]([url](https://www.kaggle.com/datasets/souvikahmed071/social-media-and-mental-health/data)) data (https://www.kaggle.com/datasets/souvikahmed071/social-media-and-mental-health/data)
 - Sample Size: 481 participants
 - Features: 21 variables including demographics, social media usage patterns, and psychological indicators
 - Target: Mental health risk level (Low, Medium, High) derived from 12 Likert-scale psychological assessment questions
