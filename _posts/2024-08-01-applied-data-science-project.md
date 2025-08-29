@@ -107,8 +107,8 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 Output: daily_hours_numeric variable for correlation analysis
 
 **3. Mental Health Risk Classification**
-low_threhold set at 22 as this means the average response ≤ 2.0 per question (between "Never/Rarely" and "Sometimes")
-medium_threhold set at 45 as this means the average response is 2.1-4.1 per question ("Sometimes" to "Often")
+- low_threhold set at 22 as this means the average response ≤ 2.0 per question (between "Never/Rarely" and "Sometimes")
+- medium_threhold set at 45 as this means the average response is 2.1-4.1 per question ("Sometimes" to "Often")
 
 Created three-tier risk system:
 
