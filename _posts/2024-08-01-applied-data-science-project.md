@@ -36,8 +36,7 @@ This project seeks to addresses research questions in digital mental health:
 
 **1. Gender Variable Cleaning**
 
-**Original Categories Found:**
-- Entries: 'Male', 'Female', 'Nonbinary', 'Non-binary', 'NB', 'unsure', 'Trans', 'Non binary', 'There are others???'
+Original Categories Found: 'Male', 'Female', 'Nonbinary', 'Non-binary', 'NB', 'unsure', 'Trans', 'Non binary', 'There are others???'
 
 ```python
 # Renaming the "Others" gender variable
