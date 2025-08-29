@@ -45,29 +45,30 @@ smmh_clean['gender_clean'] = smmh_clean['gender'].apply(lambda x: x if x in ['Ma
 smmh_clean = smmh_clean[smmh_clean['gender_clean'].isin(['Male', 'Female'])].copy()
 ```
 
-Retained only 'Male' and 'Female' categories for binary analysis
-Excluded 7 respondents with non-binary/other gender identities
-Final gender distribution: ~478 respondents (Male: ~211, Female: ~263)
+- Retained only 'Male' and 'Female' categories for binary analysis
+- Excluded 7 respondents with non-binary/other gender identities
+- Final gender distribution: ~478 respondents (Male: ~211, Female: ~263)
 
-2. Age Data Type Conversion
+**2. Age Data Type Conversion**
+   
+Ensure age variable is properly formatted for analysis 
 
-Ensure age variable is properly formatted for numerical analysis 
 ```python
 smmh_clean['age'] = smmh_clean['age'].astype(int)
 ```
 
-3. Missing Data Handling - Organization Type
-Objective: Address missing values in organization affiliation variable
-Process:
-python# Get the mode of the 'organization_type' column
+**3. Missing Data Handling - Organization Type**
+
+```python
+# Get the mode of the 'organization_type' column
 mode_value = smmh_clean['organization_type'].mode()[0]  
 # Fill missing values with the mode
 smmh_clean.fillna({'organization_type': mode_value}, inplace=True)
-Rationale:
+```
 
-Used mode imputation (most frequent value) for categorical variable
-Maintains representative distribution of organization types
-Prevents loss of respondents due to missing demographic data
+Rationale:
+- Used mode imputation (most frequent value) for categorical variable
+- Maintains representative distribution of organization types
 
 4. Social Media Usage Filter
 Objective: Focus analysis on active social media users only
