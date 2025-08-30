@@ -366,9 +366,8 @@ To enhance model performance and capture deeper behavioral patterns, future data
 
 
 ## AI Ethics
-Discuss the potential data science ethics issues (privacy, fairness, accuracy, accountability, transparency) in your project. 
 
-Developing models for mental health risk prediction might involve sensitive data from the respondents. The following ethical issues were carefully considered:
+Developing models for mental health risk prediction might involve sensitive data from the respondents. The following are the potential data science ethical issues:
 
 1. Privacy
 - Personal details, mental health status, and social media usage patterns are usually highly sensitive. However, in this project, the dataset used contained no personal identifiers. As such, there is no privacy concern. 
@@ -382,18 +381,16 @@ Developing models for mental health risk prediction might involve sensitive data
 - Mitigation: Multiple models (Random Forest, Decision Tree, SVM) were compared to assess robustness and reliability. Evaluation with cross-validaiton and balanced metrics helps to ensure reliable performance.  
 
 4. Accountability
-- Suppose that model is used in real-world mental health screening, accountability must be clearly assigned.
+- If the model is used in real-world mental health screening, accountability would need to be clearly assigned.
 - Mitigation: Human-in-the-loop validation is recommended as prediction shoudl complement and not replace, professional judgement. 
 
 5. Transparency
-- Black-box models reduce trust and make it hard for stakeholders (researchers, clinicians, participants) to understand why predictions were made. Transparency is essential in healthcare-related AI, as stakeholders must justify outcomes to affected individuals  
-- Mitigation: Interpretable models (Decision Tree), explainability techniques (SHAP/LIME), thorough documentation.
+- Black-box models was not used as it reduce trust and make it hard for stakeholders (researchers, clinicians, participants) to understand why predictions were made. Transparency is essential in healthcare-related AI, as outcome must be explainable and justifiable. 
+- Mitigation: Interpretable models (Decision Tree) should be used and thorough documentation should be included to enhance transparency.
   
 
 ---
-
-✅ **Conclusion:**  
-By embedding **privacy protection, fairness checks, accuracy validation, accountability frameworks, and transparency tools**, this project ensures **responsible and trustworthy use of AI** in mental health risk prediction.  
+  
 
 ## Source Codes and Datasets
 Upload your model files and dataset into a GitHub repo and add the link here. 
