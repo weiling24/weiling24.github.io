@@ -368,7 +368,32 @@ To enhance model performance and capture deeper behavioral patterns, future data
 ## AI Ethics
 Discuss the potential data science ethics issues (privacy, fairness, accuracy, accountability, transparency) in your project. 
 
+Developing models for mental health risk prediction might involve sensitive data from the respondents. The following ethical issues were carefully considered:
 
+## 🔒 Privacy
+- Mental health and social media data are highly sensitive.  
+- Mitigation: Encryption, anonymization, pseudonymization, and restricted access controls.  
+
+## ⚖️ Fairness
+- Risk of bias if certain demographic groups are underrepresented.  
+- Mitigation: Stratified sampling, SMOTE for class balance, subgroup performance monitoring.  
+
+## 📈 Accuracy
+- Misclassification may cause stigma (false positives) or missed support (false negatives).  
+- Mitigation: Prioritize recall for High-Risk detection, continuous validation, use as decision-support not replacement.  
+
+## 🧾 Accountability
+- Responsibility must be defined if predictions cause harm.  
+- Mitigation: Human-in-the-loop validation, clear responsibility framework, logging of all modeling decisions.  
+
+## 🔍 Transparency
+- Black-box models reduce trust.  
+- Mitigation: Interpretable models (Decision Tree), explainability techniques (SHAP/LIME), thorough documentation.  
+
+---
+
+✅ **Conclusion:**  
+By embedding **privacy protection, fairness checks, accuracy validation, accountability frameworks, and transparency tools**, this project ensures **responsible and trustworthy use of AI** in mental health risk prediction.  
 
 ## Source Codes and Datasets
 Upload your model files and dataset into a GitHub repo and add the link here. 
