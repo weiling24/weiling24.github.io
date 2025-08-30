@@ -151,13 +151,27 @@ all_features.append('gender_encoded')
 - Stratified sampling to preserve risk level distribution
 - Fixed random state (42) ensuring reproducibility across multiple runsom state for reproducibility
 
+```python
+- # Prepare data for modeling
+X = smmh_clean[all_features].copy()
+y = smmh_clean['risk_level']
+
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+```
+
 **2. Class Imbalance Handling:**
 - Applied SMOTE to training data to address class imbalance
+
+ ```python 
+# Apply SMOTE only on training data
+smote = SMOTE(random_state=42)
+X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
+```
 
 
 ### Modelling
 1. Decision Tree
-
 
 - Maintained test set integrity for unbiased evaluation
 - Used class weighting strategies {Low:1, Medium:2, High:5} to prioritize high-risk identification
