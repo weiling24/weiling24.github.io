@@ -174,6 +174,11 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 
 
 ### Modelling
+
+3 models of the supervised learning classifiers are suitable because they can learn from labeled survey data, handle imbalanced classes, and provide a balance of interpretability, robustness, and accurate classification of mental health risk levels.
+
+
+
 **1. Decision Tree (DT)**
 
 **1A. Baseline Model**
