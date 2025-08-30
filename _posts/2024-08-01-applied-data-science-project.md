@@ -370,25 +370,26 @@ Discuss the potential data science ethics issues (privacy, fairness, accuracy, a
 
 Developing models for mental health risk prediction might involve sensitive data from the respondents. The following ethical issues were carefully considered:
 
-## 🔒 Privacy
-- Mental health and social media data are highly sensitive.  
-- Mitigation: Encryption, anonymization, pseudonymization, and restricted access controls.  
+1. Privacy
+- Mental health and social media usage are highly personal. Without strict privacy safeguards, participants may be unwilling to share data honestly, leading to limited datasets. Any misuse or leakage of such data could harm participants’ dignity, safety, or reputation.
+- Mitigation: Data anonymization was applied to remove identifying information. Only aggregated results are shared; no individual profiles are published. Access control and encryption were recommended for data storage/processing.  
 
-## ⚖️ Fairness
-- Risk of bias if certain demographic groups are underrepresented.  
-- Mitigation: Stratified sampling, SMOTE for class balance, subgroup performance monitoring.  
+2. Fairness
+- Models may perform better on certain demographic groups (e.g., gender, age, occupation), leading to biased risk predictions. Bias in mental health predictions could unfairly stigmatize some groups or overlook at-risk individuals. 
+- Mitigation: Stratified sampling was used to preserve risk distribution across groups. SMOTE was applied to balance underrepresented High- and Low-Risk classes. Subgroup performance monitoring ensures no group is disproportionately disadvantaged.  
 
-## 📈 Accuracy
-- Misclassification may cause stigma (false positives) or missed support (false negatives).  
-- Mitigation: Prioritize recall for High-Risk detection, continuous validation, use as decision-support not replacement.  
+3. Accuracy
+- Misclassifications may cause harm — e.g., false negatives could miss high-risk individuals, while false positives could cause unnecessary anxiety or interventions. Accuracy in mental health risk detection is critical because mistakes carry direct human consequences
+- Mitigation: Multiple models (Random Forest, Decision Tree, SVM) were benchmarked to assess robustness and reliability. Human-in-the-loop validation is recommended before using predictions in real interventions
 
-## 🧾 Accountability
-- Responsibility must be defined if predictions cause harm.  
+5. Accountability
+- If an AI model is used in real-world mental health screening, accountability must be clear — who is responsible for decisions made with AI predictions? 
 - Mitigation: Human-in-the-loop validation, clear responsibility framework, logging of all modeling decisions.  
 
-## 🔍 Transparency
-- Black-box models reduce trust.  
-- Mitigation: Interpretable models (Decision Tree), explainability techniques (SHAP/LIME), thorough documentation.  
+5. Transparency
+- Black-box models reduce trust and make it hard for stakeholders (researchers, clinicians, participants) to understand why predictions were made. Transparency is essential in healthcare-related AI, as stakeholders must justify outcomes to affected individuals  
+- Mitigation: Interpretable models (Decision Tree), explainability techniques (SHAP/LIME), thorough documentation.
+  
 
 ---
 
