@@ -33,10 +33,13 @@ This project seeks to addresses research questions in digital mental health:
 ### Data Preparation
 
 **A) Data Cleaning:**
+Gender categories were standardized to 'Male' and 'Female', removing a small number of non-binary/other respondents. Age values were converted to integers, missing organization types were filled with the mode, and participants who did not use social media were excluded to ensure all remaining data reflected relevant digital behavior.
 
 **1. Gender Variable Cleaning**
 
-  - 9 Original Categories Found: 'Male', 'Female', 'Nonbinary', 'Non-binary', 'NB', 'unsure', 'Trans', 'Non binary', 'There are others???'
+- Original dataset contained multiple non-binary/other categories.
+- Recoded all non-'Male'/'Female' entries as 'Other' and removed them due to small sample size (~7 respondents).
+- Final dataset: ~478 respondents (Male: 211, Female: 263).
 
 ```python
 # Renaming the "Others" gender variable
@@ -44,19 +47,16 @@ smmh_clean['gender_clean'] = smmh_clean['gender'].apply(lambda x: x if x in ['Ma
 smmh_clean = smmh_clean[smmh_clean['gender_clean'].isin(['Male', 'Female'])].copy()
 ```
 
-  - Rationale:
-    - As the "Others" category is small, excluded 7 respondents with non-binary/other gender identities
-    - Final gender distribution: ~478 respondents (Male: ~211, Female: ~263)
-
 **2. Age Data Type Conversion**
    
-  - Ensure age variable is properly formatted for analysis 
+- Ensure age variable is properly formatted for analysis 
 
 ```python
 smmh_clean['age'] = smmh_clean['age'].astype(int)
 ```
 
 **3. Missing Data Handling - Organization Type**
+- Imputed missing values with the mode to maintain representative distribution.
 
 ```python
 # Get the mode of the 'organization_type' column
@@ -65,23 +65,18 @@ mode_value = smmh_clean['organization_type'].mode()[0]
 smmh_clean.fillna({'organization_type': mode_value}, inplace=True)
 ```
 
-  - Rationale:
-    - Used mode imputation (most frequent value) for categorical variable
-    - Maintains representative distribution of organization types
-
 **4. Social Media Usage Filter** 
+- Removed participants who do not use social media to focus on relevant digital behavior.
 
 ```python
 # Remove rows where participants don't use social media
 smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 ```
 
-  - Rationale:
-    - Excluded non-social media users from analysis to ensure all remaining respondents have relevant digital behavior data
-
 ---
 
 **B) Data Transformation**
+Platform usage data was split and one-hot encoded, with platform diversity metrics generated for each user. Categorical time ranges were converted into numeric hours, and survey scores were classified into Low, Medium, and High mental health risk based on defined thresholds. Demographic variables like gender, relationship status, and occupation were label-encoded for modeling.
 
 **1. Platform Usage Feature Engineering**
 
@@ -109,8 +104,8 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 **Output:** `daily_hours_numeric` variable for correlation analysis
 
 **3. Mental Health Risk Classification**
-- low_threhold set at 22 as this means the average response ≤ 2.0 per question (between "Never/Rarely" and "Sometimes")
-- medium_threhold set at 45 as this means the average response is 2.1-4.1 per question ("Sometimes" to "Often")
+- Defined low_threhold at 22 as this means the average response ≤ 2.0 per question (between "Never/Rarely" and "Sometimes")
+- Defined medium_threhold at 45 as this means the average response is 2.1-4.1 per question ("Sometimes" to "Often")
 
 Created three-tier risk system:
 
@@ -147,11 +142,12 @@ all_features.append('gender_encoded')
 
 
 ### Pre-Modelling
+Before modeling, the dataset was split 80-20 with stratified sampling to preserve risk level distribution and ensure reproducibility. To address the class imbalance, SMOTE was applied to the training set to generate synthetic samples for the underrepresented Low- and High-Risk classes.
 
 **1. Train-Test Split Configuration:**
-- 80-20 split maintaining adequate sample sizes for both training (376 samples) and testing (95 samples)
-- Stratified sampling to preserve risk level distribution
-- Fixed random state (42) ensuring reproducibility across multiple runsom state for reproducibility
+- 80-20 split with 376 training samples and 95 testing samples
+- Stratified sampling to maintain risk level distribution
+- Fixed random state (42) for reproducibility
 
 ```python
 - # Prepare data for modeling
@@ -163,8 +159,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 ```
 
 **2. Class Imbalance Handling:**
-- The dataset was highly imbalanced, with **High-Risk cases severely underrepresented** (53 high-risk cases, 51 low-risk and 367 medium-risk).  
-- We applied **SMOTE** on the training set to generate synthetic samples for minority classes (i.e low and high risk).  
+- Dataset is highly imbalanced: 53 high-risk cases, 51 low-risk and 367 medium-risk.  
+- Applied **SMOTE** on the training set to generate synthetic samples for minority classes (i.e low and high risk).  
 
  ```python 
 # Apply SMOTE only on training data
@@ -175,7 +171,7 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 
 ### Modelling
 
-Model Selection: Decision Tree, Random Forest, and Support Vector Machine (SVM) were chosen for the classification task to balance interpretability, robustness, and accuracy. Decision Trees provide simple, understandable rules, Random Forest improve generalisation and handle complex feature interactions, and SVM find optimal boundaries in high-dimensional spaces while detecting minority classes effectively. Together, they offer a comprehensive approach for predicting categorical risk levels.
+Model Selection: Decision Tree, Random Forest, and Support Vector Machine (SVM) were chosen for the classification task to balance interpretability, robustness, and accuracy. Decision Trees provide simple, understandable rules, Random Forest improve generalisation and handle complex feature interactions, and SVM find optimal boundaries in high-dimensional spaces while detecting minority classes effectively. Together, they offer a comprehensive approach for predicting categorical risk levels. Below are the three model configurations used for evaluation and tuning:
 
 **1. Decision Tree (DT)**
 
