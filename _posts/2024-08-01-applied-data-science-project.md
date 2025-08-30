@@ -173,15 +173,49 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 ### Modelling
 1. Decision Tree
 
-- Maintained test set integrity for unbiased evaluation
-- Used class weighting strategies {Low:1, Medium:2, High:5} to prioritize high-risk identification
 - 
 **Hyperparameter Tuning Process: **
 
 - GridSearchCV testing 350+ parameter combinations
-- Parameters optimized: max_depth (4-10), min_samples_split (10-30), min_samples_leaf (1-15), class_weight, criterion
+- Parameters optimized: max_depth (4-10), min_samples_split (10-20), min_samples_leaf (5-10), class_weight, criterion
 - Multi-metric scoring: Accuracy, balanced accuracy, F1-weighted, F1-high
 - Refit strategy: Prioritized F1-high score for clinical relevance
+
+
+## Decision Tree Model: Baseline vs Tuned
+
+### 🔹 Baseline Model
+- Trained with SMOTE and used class weighting strategies {Low:1, Medium:2, High:5} to prioritize high-risk identification
+
+
+### 🔹 Tuned Model (SMOTE + Class Weights + Grid Search)
+- Applied **SMOTE** to rebalance classes.  
+- Used **class weights** (Low=1, Medium=2, High=5) to emphasize detection of **High-Risk** cases.  
+- Hyperparameters optimized with **GridSearchCV** using stratified 5-fold CV, refit on **High-Risk F1**.  
+
+---
+
+### 📊 Results Summary
+
+#### Test Set (Original Imbalanced Data)
+| Metric            | Untuned | Tuned |
+|-------------------|---------|-------|
+| Accuracy          | **0.611** | 0.484 |
+| Balanced Accuracy | **0.537** | 0.458 |
+| F1 Weighted       | **0.653** | 0.531 |
+
+#### Cross-Validation (5-fold, SMOTE Data)
+| Metric            | Untuned | Tuned |
+|-------------------|---------|-------|
+| Accuracy          | 0.662 ± 0.052 | **0.726 ± 0.072** |
+| Balanced Accuracy | 0.405 ± 0.054 | **0.726 ± 0.072** |
+| F1 Weighted       | 0.656 ± 0.046 | **0.724 ± 0.069** |
+
+---
+
+### 🧾 Classification Reports
+
+**Untuned Decision Tree**
 
 
 2. Random Forest
