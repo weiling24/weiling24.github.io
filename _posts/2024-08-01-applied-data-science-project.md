@@ -174,15 +174,10 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 ### Modelling
 1. Decision Tree
 
-## Decision Tree Model: Baseline vs Tuned
-
-### Baseline Model
+**1A. Baseline Model**
 - Trained with SMOTE and used class weighting strategies {Low:1, Medium:2, High:5} to prioritize high-risk identification
 
-
-### Tuned Model
-
-- Hyperparameters optimized with **GridSearchCV** using stratified 5-fold CV, refit on **High-Risk F1**.
+**1B. Tuned Model**
 
 - GridSearchCV testing 350+ parameter combinations
 - Parameters optimized: max_depth (4-10), min_samples_split (10-20), min_samples_leaf (5-10), class_weight, criterion
