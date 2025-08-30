@@ -175,9 +175,7 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 
 ### Modelling
 
-3 models of the supervised learning classifiers are suitable because they can learn from labeled survey data, handle imbalanced classes, and provide a balance of interpretability, robustness, and accurate classification of mental health risk levels.
-
-
+Model Selection: Decision Tree, Random Forest, and Support Vector Machine (SVM) were chosen for the classification task to balance interpretability, robustness, and accuracy. Decision Trees provide simple, understandable rules, Random Forest improve generalisation and handle complex feature interactions, and SVM find optimal boundaries in high-dimensional spaces while detecting minority classes effectively. Together, they offer a comprehensive approach for predicting categorical risk levels.
 
 **1. Decision Tree (DT)**
 
