@@ -169,12 +169,6 @@ all_features.append('gender_encoded')
 - Multi-metric scoring: Accuracy, balanced accuracy, F1-weighted, F1-high
 - Refit strategy: Prioritized F1-high score for clinical relevance
 
-**Key Characteristics:**
-
-- Maximum interpretability with clear decision paths
-- Feature importance transparency enabling clinical explanation
-- Robust performance after hyperparameter optimization
-- Clinical utility through explainable decision rules
 
 2. Random Forest
 
