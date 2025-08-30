@@ -79,6 +79,8 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
   - Rationale:
     - Excluded non-social media users from analysis to ensure all remaining respondents have relevant digital behavior data
 
+---
+
 **B) Data Transformation**
 
 **1. Platform Usage Feature Engineering**
