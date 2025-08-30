@@ -229,6 +229,68 @@ Model Selection: Decision Tree, Random Forest, and Support Vector Machine (SVM) 
 
 ### Evaluation
 
+**1. Decision Tree (DT)**
+
+**Test Set Performance**
+- Accuracy: Untuned = 0.611 | Tuned = 0.621  
+- Weighted F1: Untuned = 0.653 | Tuned = 0.659  
+- Balanced Accuracy: Untuned = 0.537 | Tuned = 0.516  
+
+**Observations**
+- Medium- and Low-Risk classes were predicted reasonably well, while High-Risk detection remained limited (F1 0.17–0.21).  
+- 5-fold cross-validation showed consistent performance: accuracy ~0.72, weighted F1 ~0.72.  
+
+**Summary**
+- Decision Tree is interpretable and provides a simple baseline, but struggles to identify minority High-Risk cases.
+
+---
+
+**2. Random Forest (RF) **
+
+**Test Set Performance**
+- Accuracy: Untuned = 0.747 | Tuned = 0.505  
+- Weighted F1: Untuned = 0.728 | Tuned = 0.546  
+- Balanced Accuracy: Untuned = 0.490 | Tuned = 0.679  
+
+**Observations**
+- Untuned model had high overall accuracy but poor minority class detection.  
+- Tuned model improved recall for High-Risk (0.09 → 0.82) and Low-Risk, but overall accuracy dropped due to trade-off.  
+- Cross-validation confirmed better balanced performance after tuning.  
+
+**Summary**
+- Random Forest is effective at detecting High-Risk individuals after tuning, though overall accuracy may decrease due to trade-offs.
+
+---
+
+**3. Support Vector Machine (SVM)**
+
+**Test Set Performance**
+- Accuracy: Untuned = 0.600 | Tuned = 0.726  
+- Weighted F1: Untuned = 0.636 | Tuned = 0.729  
+- Balanced Accuracy: Untuned = 0.507 | Tuned = 0.532  
+
+**Observations**
+- Tuned SVM improved detection of Medium-Risk and overall predictive performance.  
+- High-Risk detection remained modest (precision 0.25, recall 0.27).  
+- Cross-validation showed robust generalization: accuracy ~0.80, weighted F1 ~0.80.  
+
+**Summary**
+- Tuned SVM provides the best overall performance across metrics, balancing accuracy, weighted F1, and robustness, making it the preferred model for predicting mental health risk levels.
+
+---
+
+**Overall Model Recommendation**
+
+- **Random Forest:** Strong at detecting High-Risk cases, useful when prioritizing recall for minority classes.  
+- **Decision Tree:** Highly interpretable, suitable for baseline modeling and explanation of decision rules, but limited in High-Risk detection.
+
+
+
+
+
+
+
+
 1. Decision Tree Performance
 - The untuned model had stronger overall accuracy but weak High-Risk detection.
 - The tuned model performed better during cross-validation with SMOTE data, showing improved fairness across classes, but struggled when tested on the original imbalanced dataset.
