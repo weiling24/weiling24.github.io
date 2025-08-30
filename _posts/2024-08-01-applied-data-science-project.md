@@ -294,6 +294,10 @@ Small Dataset Size
 - **Recommendation:** Collect **3–5x more data**, with a particular focus on **increasing high-risk samples** to improve model stability and generalizability.
 
 
+Additional Data Fields for Feature Engineering  
+
+To enhance model performance and capture deeper behavioral patterns, future data collection could include **temporal, content & behavior, social interaction, and physiological indicators** (e.g., late-night usage, message response time, sleep duration). These would enable the creation of interaction fields, offering richer insights into digital behavior and its association with mental health risk.  
+
 
 ## AI Ethics
 Discuss the potential data science ethics issues (privacy, fairness, accuracy, accountability, transparency) in your project. 
