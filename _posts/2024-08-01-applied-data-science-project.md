@@ -394,3 +394,5 @@ Developing models for mental health risk prediction might involve sensitive data
 
 ## Source Codes and Datasets
 Upload your model files and dataset into a GitHub repo and add the link here. 
+
+[Download the dataset (CSV)](https://github.com/weiling24/weiling24.github.io/blob/master/smmh.csv)
