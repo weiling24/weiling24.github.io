@@ -181,11 +181,10 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
   - `max_depth = 8`  , `min_samples_split = 15`  , `min_samples_leaf = 5`  
 
 
-
 **1B. Tuned Model**
 
-- using `GridSearchCV` to automatically find the best combination of hyperparameters for a model, optimizing its performance while reducing the need for manual trial-and-error tuning. Tested 350+ parameter combinations
-  - Parameters optimized: max_depth (4-10), min_samples_split (10-20), min_samples_leaf (5-10), class_weight, criterion
+- Used `GridSearchCV` to automatically find the best combination of hyperparameters for a model, optimizing its performance while reducing the need for manual trial-and-error tuning. Tested 350+ parameter combinations
+  - Parameters optimized: max_depth (4-10), min_samples_split (10-20), min_samples_leaf (5-10), criterion
   - Best Decision Tree parameters:  `criterion': 'gini`, `max_depth': 8`, `min_samples_leaf: 5`, `min_samples_split': 10`
 - Custom scoring metric: To prioritise the detection of the High-Risk class in the imbalanced dataset, **weighted F1 score** was used.
 - Cross validation - Used **StratifiedKFold (5 folds)** to ensure that the **class distribution is maintained in each fold**, providing a more reliable evaluation on imbalanced datasets.
@@ -205,6 +204,8 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 - Cross-validation stability ensuring consistent performance
 - Feature importance aggregation providing reliable variable rankings
 - Clinical performance prioritization through strategic class weighting
+
+---
 
 3. Support Vector Machine
 
