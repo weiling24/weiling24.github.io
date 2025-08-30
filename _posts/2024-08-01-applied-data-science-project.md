@@ -332,13 +332,6 @@ Clinical Excellence:
 - Stable cross-validation: Low standard deviation (±3.1%) indicates reliable performance
 - Clinical safety: Only 1 high-risk individual completely missed (classified as low-risk)
 
-Ensemble Advantages:
-
-- Robust probability estimates: Averaging across 200 trees provides stable risk assessments
-- Reduced overfitting: Ensemble approach prevents memorization of training patterns
-- Feature importance reliability: Aggregated importance scores provide trustworthy insights
-- Generalization strength: Consistent performance across diverse data splits
-
 3. Support Vector Machine Performance
 Quantitative Results:
 
@@ -354,31 +347,10 @@ Critical Performance Issue:
 - Clinical danger: 100% of high-risk individuals missed entirely
 - Conservative bias: Extreme preference for "safe" predictions
 
-Technical Analysis:
-
-- RBF kernel limitations: Non-linear transformations may have eliminated high-risk decision regions
-- Class imbalance sensitivity: Despite class weighting, severe imbalance (11% high-risk) overwhelmed optimization
-- Feature scaling effects: Normalization may have reduced discriminative power of key variables
-- Probability calibration paradox: Good ROC-AUC suggests ranking ability exists but threshold selection failed
 
 
 ## Recommendation and Analysis
-Primary Recommendation: Random Forest Deployment
-Clinical Deployment Rationale:
-- Random Forest emerges as the optimal choice for clinical mental health screening applications based on comprehensive evaluation criteria:
 
-**Superior Clinical Performance:
-- 82% high-risk recall: Identifies 4 out of 5 individuals needing immediate intervention
-- Balanced accuracy: Strong performance across all risk categories (67.9%)
-- Clinical safety: Minimizes dangerous false negatives (missed high-risk cases)
-- Population screening suitable: Reliable performance for large-scale deployment
-
-** Technical Reliability:
-
-- Highest ROC-AUC (0.758): Best overall discriminative ability
-- Stable cross-validation: Consistent performance across different data splits (±3.1% SD)
-- Robust probability estimates: Ensemble averaging provides calibrated risk probabilities
-- Generalization strength: Proper balance between training and validation performance
 
 ** Areas for Improvement:**
 
