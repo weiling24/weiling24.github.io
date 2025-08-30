@@ -34,7 +34,7 @@ This project seeks to addresses research questions in digital mental health:
 
 **A) Data Cleaning:**
 
-Gender categories were standardized to 'Male' and 'Female', removing a small number of non-binary/other respondents. Age values were converted to integers, missing organization types were filled with the mode, and participants who did not use social media were excluded to ensure all remaining data reflected relevant digital behavior.
+Gender categories were standardized to 'Male' and 'Female', removing a small number of non-binary/other respondents. Age values were converted to integers, missing organization types were filled with the mode, and participants who did not use social media were excluded to ensure all remaining data reflected relevant digital behavior. The specific cleaning steps are as follows: 
 
 **1. Gender Variable Cleaning**
 
@@ -78,7 +78,7 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 
 **B) Data Transformation**
 
-Platform usage data was split and one-hot encoded, with platform diversity metrics generated for each user. Categorical time ranges were converted into numeric hours, and survey scores were classified into Low, Medium, and High mental health risk based on defined thresholds. Demographic variables like gender, relationship status, and occupation were label-encoded for modeling.
+Platform usage data was split and one-hot encoded, with platform diversity metrics generated for each user. Categorical time ranges were converted into numeric hours, and survey scores were classified into Low, Medium, and High mental health risk based on defined thresholds. Demographic variables like gender, relationship status, and occupation were label-encoded for modeling. The detailed transformation steps are as follows:
 
 **1. Platform Usage Feature Engineering**
 
@@ -144,7 +144,7 @@ all_features.append('gender_encoded')
 
 
 ### Pre-Modelling
-Before modeling, the dataset was split 80-20 with stratified sampling to preserve risk level distribution and ensure reproducibility. To address the class imbalance, SMOTE was applied to the training set to generate synthetic samples for the underrepresented Low- and High-Risk classes.
+Before modeling, the dataset was split 80-20 with stratified sampling to preserve risk level distribution and ensure reproducibility. To address the class imbalance, SMOTE was applied to the training set to generate synthetic samples for the underrepresented Low- and High-Risk classes. The detailed pre-modelling steps are as follows:
 
 **1. Train-Test Split Configuration:**
 - 80-20 split with 376 training samples and 95 testing samples
