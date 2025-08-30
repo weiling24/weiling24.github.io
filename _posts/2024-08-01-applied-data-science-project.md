@@ -174,12 +174,12 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 
 
 ### Modelling
-**1. Decision Tree**
+**1. Decision Tree (DT)**
 
 **1A. Baseline Model**
 - Trained with SMOTE and used class weighting strategies to prioritise high-risk identification
   - `class_weight={'Low': 1, 'Medium': 2, 'High': 5}`
-- Initialized with basic hyperparameters:
+- Initialised with basic hyperparameters:
   - `max_depth = 8`  , `min_samples_split = 15`  , `min_samples_leaf = 5`  
 
 
@@ -187,45 +187,44 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 
 - Used `GridSearchCV` to automatically find the best combination of hyperparameters, testing over 350+ combinations, reducing manual trial-and-error
   - Parameters optimised: max_depth (4-10), min_samples_split (10-20), min_samples_leaf (5-10), criterion
-  - Best Decision Tree parameters:  `criterion': 'gini`, `max_depth': 8`, `min_samples_leaf: 5`, `min_samples_split': 10`
+  - Best DT parameters:  `criterion': 'gini`, `max_depth': 8`, `min_samples_leaf: 5`, `min_samples_split': 10`
 - Custom scoring metric: Weighted F1 score to prioritise High-Risk class detection.
 - Cross validation: StratifiedKFold (5 folds) to maintain class distribution in each fold.
 
 ---
 
-2. Random Forest
+**2. Random Forest (RF)**
 
 **2A. Baseline Model**
 - Trained with SMOTE and used class weighting strategies to prioritise high-risk identification
   - `class_weight={'Low': 1, 'Medium': 2, 'High': 5}`
-- The Random Forest model was initialized with **basic hyperparameters**:
+- Initialised with basic hyperparameter:
   - `n_estimators = 200`, `max_depth = None`, `min_samples_split = 2`, `min_samples_leaf = 1`  
 
 
 **2B. Tuned Model**
-- Used `GridSearchCV` for hyperparameter optimization (same rationale as Decision Tree).
+- Used `GridSearchCV` for hyperparameter optimisation (same rationale as Decision Tree).
   - Parameter optimised: n_estimators: [100, 200], max_depth: [6, 8, 10], min_samples_split: [10, 20], min_samples_leaf: [5, 10]  
-  - Best Random forest paramter: `max_depth: 10`, `min_samples_leaf: 5`, `min_samples_split: 10`, `n_estimators': 200`
+  - Best RF paramter: `max_depth: 10`, `min_samples_leaf: 5`, `min_samples_split: 10`, `n_estimators': 200`
 - Custom scoring metric: Weighted F1 score to prioritise High-Risk class (same as Decision Tree).
 - Cross validation: StratifiedKFold (5 folds) to preserve class distribution.
   
 ---
 
-3. Support Vector Machine
+**3. Support Vector Machine (SVM)** 
 
-**Mathematical Approach:**
+**3A. Baseline Model**
+- Trained with SMOTE and used class weighting strategies to prioritise high-risk identification
+  - `class_weight={'Low': 1, 'Medium': 2, 'High': 5}`
+- Initialised with basic hyperparameter:
+  - `probability=True`, `random_state=42`
 
-- RBF kernel capturing non-linear relationships between features and mental health outcomes
-- High regularization (C=10) preventing overfitting while maintaining model complexity
-- Automatic gamma scaling adapting to feature variance patterns
-- Probability estimation enabled for ROC-AUC analysis and ensemble potential
-
-**Parameter Optimization:**
-- Comprehensive grid search across kernel types (linear, rbf, polynomial)
-- C parameter range: 0.1 to 100 testing regularization strength
-- Gamma optimization: scale, auto, and manual values (0.01-1.0)
-- Feature scaling applied for optimal SVM performance
-
+**3B. Tuned Model**
+- Used `GridSearchCV` for hyperparameter optimisation (same rationale as Decision Tree).
+  - Parameter optimised: svm__C': [0.1, 1, 10], svm__kernel: ['linear', 'rbf', 'poly'] , svm__gamma: ['scale', 'auto'] (for rbf/poly kernels)   
+  - Best SVM paramter: `svm__C: 10` , `svm__gamma: scale`, `svm__kernel': 'rbf` 
+- Custom scoring metric: Weighted F1 score to prioritise High-Risk class (same as Decision Tree).
+- Cross validation: StratifiedKFold (5 folds) to preserve class distribution.
 
 ### Evaluation
 
