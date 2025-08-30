@@ -228,6 +228,7 @@ Model Selection: Decision Tree, Random Forest, and Support Vector Machine (SVM) 
 - Cross validation: StratifiedKFold (5 folds) to preserve class distribution.
 
 ### Evaluation
+The following evaluates the three machine learning models for predicting **mental health risk levels** (Low, Medium, High).  
 
 **1. Decision Tree (DT)**
 
