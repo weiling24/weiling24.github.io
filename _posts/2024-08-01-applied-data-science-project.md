@@ -286,6 +286,14 @@ Clinical Deployment Rationale:
 - Robust probability estimates: Ensemble averaging provides calibrated risk probabilities
 - Generalization strength: Proper balance between training and validation performance
 
+** Areas for Improvement:**
+
+Small Dataset Size
+- **Issue:** The dataset contains only **471 total samples**, with just **53 high-risk cases**.  
+- **Impact:** This imbalance and limited size may lead to **high variance in results** and **unreliable performance estimates**.  
+- **Recommendation:** Collect **3–5x more data**, with a particular focus on **increasing high-risk samples** to improve model stability and generalizability.
+
+
 
 ## AI Ethics
 Discuss the potential data science ethics issues (privacy, fairness, accuracy, accountability, transparency) in your project. 
