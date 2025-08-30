@@ -33,6 +33,7 @@ This project seeks to addresses research questions in digital mental health:
 ### Data Preparation
 
 **A) Data Cleaning:**
+
 Gender categories were standardized to 'Male' and 'Female', removing a small number of non-binary/other respondents. Age values were converted to integers, missing organization types were filled with the mode, and participants who did not use social media were excluded to ensure all remaining data reflected relevant digital behavior.
 
 **1. Gender Variable Cleaning**
@@ -76,6 +77,7 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 ---
 
 **B) Data Transformation**
+
 Platform usage data was split and one-hot encoded, with platform diversity metrics generated for each user. Categorical time ranges were converted into numeric hours, and survey scores were classified into Low, Medium, and High mental health risk based on defined thresholds. Demographic variables like gender, relationship status, and occupation were label-encoded for modeling.
 
 **1. Platform Usage Feature Engineering**
