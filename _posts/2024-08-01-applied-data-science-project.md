@@ -189,7 +189,7 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
   - Parameters optimised: max_depth (4-10), min_samples_split (10-20), min_samples_leaf (5-10), criterion
   - Best Decision Tree parameters:  `criterion': 'gini`, `max_depth': 8`, `min_samples_leaf: 5`, `min_samples_split': 10`
 - Custom scoring metric: To prioritise the detection of the High-Risk class in the imbalanced dataset, **weighted F1 score** was used.
-- Cross validation - Used **StratifiedKFold (5 folds)** to ensure that the **class distribution is maintained in each fold**, providing a more reliable evaluation on imbalanced datasets.
+- Cross validation: Used **StratifiedKFold (5 folds)** to ensure that the **class distribution is maintained in each fold**, providing a more reliable evaluation on imbalanced datasets.
 
 ---
 
@@ -199,14 +199,14 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 - Trained with SMOTE and used class weighting strategies to prioritize high-risk identification
   - `class_weight={'Low': 1, 'Medium': 2, 'High': 5}`
 - The Random Forest model was initialized with **basic hyperparameters**:
-  -  - `n_estimators = 200`, `max_depth = None`, `min_samples_split = 2`, `min_samples_leaf = 1`  
+  - `n_estimators = 200`, `max_depth = None`, `min_samples_split = 2`, `min_samples_leaf = 1`  
 
 
 **2B. Tuned Model**
 - Used `GridSearchCV` for the same reason as Decision Tree
-- Parameter optimised: n_estimators: [100, 200], max_depth: [6, 8, 10], min_samples_split: [10, 20], min_samples_leaf: [5, 10]  
-- Best Random forest paramter: `max_depth: 10`, `min_samples_leaf: 5`, `min_samples_split: 10`, `n_estimators': 200`
-
+  - Parameter optimised: n_estimators: [100, 200], max_depth: [6, 8, 10], min_samples_split: [10, 20], min_samples_leaf: [5, 10]  
+  - Best Random forest paramter: `max_depth: 10`, `min_samples_leaf: 5`, `min_samples_split: 10`, `n_estimators': 200`
+- Custom scoring metric and Cross validation method same as Decision Tree 
 
 **Ensemble Approach:**
 - 200 decision trees providing robust ensemble predictions
