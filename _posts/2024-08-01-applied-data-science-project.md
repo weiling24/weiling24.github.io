@@ -104,7 +104,7 @@ smmh_clean = smmh_clean[smmh_clean["uses_social_media"] != "No"]
 "More than 5 hours" → 6.0 hours
 ```
 
-**Output:** daily_hours_numeric variable for correlation analysis
+**Output:** `daily_hours_numeric` variable for correlation analysis
 
 **3. Mental Health Risk Classification**
 - low_threhold set at 22 as this means the average response ≤ 2.0 per question (between "Never/Rarely" and "Sometimes")
@@ -126,7 +126,7 @@ def classify_risk_level(score):
         return 'High'
 ```
 
-**Output:** risk_level categorical variable for predictive modeling
+**Output:** `risk_level` categorical variable for predictive modeling
 
 **4. Categorical Encoding**
 - Applied Label Encoding to demographic variables:
@@ -175,7 +175,12 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 1. Decision Tree
 
 **1A. Baseline Model**
-- Trained with SMOTE and used class weighting strategies {Low:1, Medium:2, High:5} to prioritize high-risk identification
+- Trained with SMOTE and used class weighting strategies to prioritize high-risk identification
+  - `class_weight={'Low': 1, 'Medium': 2, 'High': 5}`
+- The Decision Tree model was initialized with **basic hyperparameters**:
+  - `max_depth = 8`  , `min_samples_split = 15`  , `min_samples_leaf = 5`  
+
+
 
 **1B. Tuned Model**
 
