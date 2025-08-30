@@ -161,8 +161,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 ```
 
 **2. Class Imbalance Handling:**
-The dataset was highly imbalanced, with **High-Risk cases severely underrepresented** (53 high-risk cases, 51 low-risk and 367 medium-risk).  
-We applied **SMOTE** on the training set to generate synthetic samples for minority classes (i.e low and high risk).  
+- The dataset was highly imbalanced, with **High-Risk cases severely underrepresented** (53 high-risk cases, 51 low-risk and 367 medium-risk).  
+- We applied **SMOTE** on the training set to generate synthetic samples for minority classes (i.e low and high risk).  
 
  ```python 
 # Apply SMOTE only on training data
@@ -174,29 +174,25 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 ### Modelling
 1. Decision Tree
 
-- 
-**Hyperparameter Tuning Process: **
+## Decision Tree Model: Baseline vs Tuned
+
+### Baseline Model
+- Trained with SMOTE and used class weighting strategies {Low:1, Medium:2, High:5} to prioritize high-risk identification
+
+
+### Tuned Model
+
+- Hyperparameters optimized with **GridSearchCV** using stratified 5-fold CV, refit on **High-Risk F1**.
 
 - GridSearchCV testing 350+ parameter combinations
 - Parameters optimized: max_depth (4-10), min_samples_split (10-20), min_samples_leaf (5-10), class_weight, criterion
 - Multi-metric scoring: Accuracy, balanced accuracy, F1-weighted, F1-high
-- Refit strategy: Prioritized F1-high score for clinical relevance
-
-
-## Decision Tree Model: Baseline vs Tuned
-
-### 🔹 Baseline Model
-- Trained with SMOTE and used class weighting strategies {Low:1, Medium:2, High:5} to prioritize high-risk identification
-
-
-### 🔹 Tuned Model (SMOTE + Class Weights + Grid Search)
-- Applied **SMOTE** to rebalance classes.  
-- Used **class weights** (Low=1, Medium=2, High=5) to emphasize detection of **High-Risk** cases.  
-- Hyperparameters optimized with **GridSearchCV** using stratified 5-fold CV, refit on **High-Risk F1**.  
+- Cross validation : StratifiedKFold (5 fold) maintains class distribution across folds
+- Refit strategy: Prioritized F1-high score due to imbalanced dataset   
 
 ---
 
-### 📊 Results Summary
+### Results Summary
 
 #### Test Set (Original Imbalanced Data)
 | Metric            | Untuned | Tuned |
