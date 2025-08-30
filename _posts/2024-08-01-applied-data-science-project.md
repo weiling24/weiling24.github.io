@@ -245,7 +245,7 @@ Model Selection: Decision Tree, Random Forest, and Support Vector Machine (SVM) 
 
 ---
 
-**2. Random Forest (RF) **
+**2. Random Forest (RF)**
 
 **Test Set Performance**
 - Accuracy: Untuned = 0.747 | Tuned = 0.505  
