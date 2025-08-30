@@ -161,7 +161,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 ```
 
 **2. Class Imbalance Handling:**
-- Applied SMOTE to training data to address class imbalance
+The dataset was highly imbalanced, with **High-Risk cases severely underrepresented** (53 high-risk cases, 51 low-risk and 367 medium-risk).  
+We applied **SMOTE** on the training set to generate synthetic samples for minority classes (i.e low and high risk).  
 
  ```python 
 # Apply SMOTE only on training data
