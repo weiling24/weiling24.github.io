@@ -187,29 +187,6 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 
 ---
 
-### Results Summary
-
-#### Test Set (Original Imbalanced Data)
-| Metric            | Untuned | Tuned |
-|-------------------|---------|-------|
-| Accuracy          | **0.611** | 0.484 |
-| Balanced Accuracy | **0.537** | 0.458 |
-| F1 Weighted       | **0.653** | 0.531 |
-
-#### Cross-Validation (5-fold, SMOTE Data)
-| Metric            | Untuned | Tuned |
-|-------------------|---------|-------|
-| Accuracy          | 0.662 ± 0.052 | **0.726 ± 0.072** |
-| Balanced Accuracy | 0.405 ± 0.054 | **0.726 ± 0.072** |
-| F1 Weighted       | 0.656 ± 0.046 | **0.724 ± 0.069** |
-
----
-
-### 🧾 Classification Reports
-
-**Untuned Decision Tree**
-
-
 2. Random Forest
 
 **Ensemble Approach:**
@@ -243,6 +220,10 @@ X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
 ### Evaluation
 
 1. Decision Tree Performance
+- The untuned model had stronger overall accuracy but weak High-Risk detection.
+- The tuned model performed better during cross-validation with SMOTE data, showing improved fairness across classes, but struggled when tested on the original imbalanced dataset.
+- This highlights the challenge of severe class imbalance. While resampling + weighting improves fairness, reliable generalization requires more High-Risk samples.
+
 
 Quantitative Results:
 - Test Accuracy: 48.4%
